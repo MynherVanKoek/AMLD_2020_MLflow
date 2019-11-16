@@ -26,6 +26,7 @@ env.bak/
 venv.bak/
 *_venv/
 mlflow_server/
+mlflow_sklearn/
 
 # MLflow backend storage
 mlruns/
