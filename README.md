@@ -40,12 +40,12 @@ deactivate
 Windows
 ```bash
 mlflow_server\Scripts\activate
-mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri ./mlruns --default-artifact-root ./mlruns
+mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:///%cd%\mlruns --default-artifact-root file:/%cd%\mlruns
 ```
 Linux
 ```bash
 . mlflow_server/bin/activate
-mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri ./mlruns --default-artifact-root ./mlruns
+mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:///$pwd/mlruns --default-artifact-root file:/$pwd/mlruns
 ```
 The MLflow server is now running on http://localhost:5000, this value needs to be assigned to the environment variable `MLFLOW_TRACKING_URI`.
 
