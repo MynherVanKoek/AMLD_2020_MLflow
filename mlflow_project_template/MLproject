@@ -1,0 +1,33 @@
+# MLproject template file
+
+# -- Name of the project
+name: My Project
+
+# -- Environment: the software environment that should be used to execute project entry points. This includes all library dependencies required by the project code.
+# a) conda environment
+conda_env: my_env.yaml
+
+# b) As an alternative to conda_env, a docker environment is also possible.
+#docker_env:
+#  image: <registry>/<image>:<version>
+
+# -- Entry points: Commands that can be run within the project, and information about their parameters. Most projects contain at least one entry point that you want other users to call. You can call any .py or .sh file in the project as an entry point.
+entry_points:
+  # name of entry point
+  train:
+    # definition of parameters
+    parameters:
+      # only the data type (float, string, path, and uri possible)
+      data_file: path
+      # data type and default, short syntax
+      par: {type: float, default: 0.1}
+      # data type and default, long syntax
+      another_par:
+        type: string
+        default: ""
+    # definition of command being executed when calling the entry point
+    command: "python train.py -p {par} --another_par {another_par} {data_file}"
+  test:
+    parameters:
+      data_file: path
+    command: "python validate.py {data_file}"
