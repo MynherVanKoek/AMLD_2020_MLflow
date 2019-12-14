@@ -20,7 +20,7 @@ deactivate
 ### Virtual environment with required packages for workshop 
 Windows
 ```bash
-python -m venv sklearn_venv
+python -m venv mlflow_sklearn
 sklearn_venv\Scripts\activate
 pip install mlflow sklearn matplotlib jupyter
 python -m ipykernel install --user --name sklearn_venv --display-name "Python (MLflow sklearn)"
