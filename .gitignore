@@ -33,3 +33,4 @@ mlruns/
 
 # MLflow artifacts
 info.txt
+*.png
