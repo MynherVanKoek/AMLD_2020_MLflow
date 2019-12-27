@@ -1,4 +1,10 @@
 # MLflow Tracking Python API
+The first component discussed is MLflow's tracking component. We will learn how to log metrics,
+model parameters, and artifacts to a server. At first, a short [overview](#overview) taken from
+MLflow's documentation is given. Then, we will apply this knowledge to three little examples (see
+[Tasks](#tasks)).
+
+## Overview
 Here, the most important MLflow Tracking functionalities and respective Python API methods are
 discussed. The [complete documentation](https://www.mlflow.org/docs/latest/tracking.html) as well as
 the complete overview of the MLflow Tracking Python API
@@ -6,7 +12,7 @@ the complete overview of the MLflow Tracking Python API
 [low level](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html)) can be found on
 MLflow's webpage.
 
-## *Runs* are core concept of MLflow
+### *Runs* are core concept of MLflow
 *Runs* are executions of some piece of data science code. Each run records the following
 information:
 * Code Version: Git commit hash used for the run, if it was run from an MLflow Project
@@ -22,7 +28,7 @@ information:
 You can optionally organize runs into *experiments*, which group together runs for a
 specific task.
 
-## Multiple options to record runs
+### Multiple options to record runs
 MLflow runs can be recorded to local files, to a SQLAlchemy compatible database, or remotely to a
 tracking server. By default, the MLflow Python API logs runs locally to files in an `mlruns`
 directory wherever you ran your program. To log runs remotely, set the `MLFLOW_TRACKING_URI`
@@ -30,7 +36,7 @@ environment variable to a tracking server's URI or call `mlflow.set_tracking_uri
 
 Consult MLflow's documentation to see the different kinds of remote tracking URIs.
 
-## Logging Functions
+### Logging Functions
 `mlflow.set_tracking_uri("<URI>")` connects to a tracking URI. You can also set the
 `MLFLOW_TRACKING_URI` environment variable to have MLflow find a URI from there. In both cases, the
 `<URI>` can either be a HTTP/HTTPS URI for a remote server (e.g.,
@@ -89,3 +95,27 @@ registered models and model versions. Some important methods are:
 * `.log_batch()`
 
 For more details on these and other methods, see MLflow's documentation.
+
+## Tasks
+In this folder, there are three Jupyter Notebooks: a 'Hello World' model
+([`111_hello_world.ipynb`](./111_hello_world.ipynb)), a logistic regression done with `sklearn`
+([`121_sklearn_logreg.ipynb`](./121_sklearn_logreg.ipynb)), and a more sophisticated classification
+done in `sklearn` ([`131_sklearn_elasticnet_wine.ipynb`](./131_sklearn_elasticnet_wine.ipynb), taken
+from MLflow's examples and modified). To open and work with these notebooks, open a CLI, go to your
+project folder where you installed the `mlflow_sklearn` environment, and type the following
+commands:
+
+Windows
+```bash
+mlflow_sklearn\Scripts\activate
+jupyter notebook
+```
+Linux
+```bash
+. mlflow_sklearn/bin/activate
+jupyter notebook
+```
+The Jupyter UI should open in a browser automatically, if not, follow the instructions in the CLI.
+
+Once the UI shows up, navigate to the `10_tracking` folder and open the Jupyter Notebook you want to
+work on. Follow the instructions in the respective notebook.
