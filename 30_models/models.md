@@ -136,3 +136,5 @@ curl http://127.0.0.1:5000/invocations -H 'Content-Type: application/json' -d '{
 ```
 
 ## Tasks
+Open the `311_sklearn_logreg.ipynb` and `321_sklearn_elasticnet_wine.ipynb` notebooks. Follow the
+respective instructions.
