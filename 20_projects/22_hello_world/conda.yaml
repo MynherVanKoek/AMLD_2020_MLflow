@@ -1,0 +1,8 @@
+name: mlflow-demo-hello-world
+channels:
+  - default
+dependencies:
+  - python=3.6.5
+  - pip=9.0.3
+  - pip:
+      - mlflow==1.5.0

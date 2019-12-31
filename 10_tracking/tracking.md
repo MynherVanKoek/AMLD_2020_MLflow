@@ -1,4 +1,4 @@
-# MLflow Tracking Python API
+# MLflow Tracking -- Keeping Track of Models
 The first component discussed is MLflow's tracking component. We will learn how to log metrics,
 model parameters, and artifacts to a server. At first, a short [overview](#overview) taken from
 MLflow's documentation is given. Then, we will apply this knowledge to three little examples (see
@@ -36,7 +36,7 @@ environment variable to a tracking server's URI or call `mlflow.set_tracking_uri
 
 Consult MLflow's documentation to see the different kinds of remote tracking URIs.
 
-### Logging Functions
+### Python API Logging Functions
 `mlflow.set_tracking_uri("<URI>")` connects to a tracking URI. You can also set the
 `MLFLOW_TRACKING_URI` environment variable to have MLflow find a URI from there. In both cases, the
 `<URI>` can either be a HTTP/HTTPS URI for a remote server (e.g.,
