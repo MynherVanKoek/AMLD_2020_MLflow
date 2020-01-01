@@ -1,4 +1,4 @@
-# MLflow Models -- Package and Deploy ML Models
+# MLflow Models -- Packaging and Deploying ML Models
 So far, we have learnt how to integrate MLflow's tracking functionalities into our model code. Doing
 so, we can now trace different runs done with different parameters and their respective outcomes to
 better evaluate, compare, discard, or accept a model. Additionally, we have found a possibility to
@@ -12,7 +12,6 @@ integrate these new functions in in our code (see [Tasks](#tasks)).
 
 ## Overview
 ### How MLflow is storing models
-
 Each MLflow Model is defined by a directory of files that contains arbitrary files and an `MLmodel`
 configuration file. For example, the output of `sklearn` models looks like follows:
 ```bash
@@ -111,10 +110,10 @@ the REST API endpoint. The image can be used to safely deploy the model to vario
 as Kubernetes. To deploy MLflow models locally or to generate a Docker image, the CLI interface to
 the `mlflow.models` module is used. For more info, see
 ```bash
-    mlflow models --help
-    mlflow models serve --help
-    mlflow models predict --help
-    mlflow models build-docker --help
+mlflow models --help
+mlflow models serve --help
+mlflow models predict --help
+mlflow models build-docker --help
 ```
 The REST API server accepts the following data formats as POST input to the `/invocations` path:
 * JSON-serialized pandas DataFrames in the `split` orientation, e.g., `data =
