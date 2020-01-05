@@ -11,7 +11,7 @@ specify its dependencies and how to run the code.
 A broad documentation on how to set up MLflow Projects can be found on
 [MLflow's own documentation](https://www.mlflow.org/docs/latest/projects.html#). Here, again, a
 shortened [overview](#overview) is given. Additionally, a
-[template folder](./21_mlflow_project_template) provides basic files to create an MLflow project.
+[template folder](200_mlflow_project_template) provides basic files to create an MLflow project.
 Hands-on tasks will be given [afterwards](#tasks).
 
 ## Overview
@@ -32,8 +32,7 @@ file. Each project can specify several properties:
 * Environment: The software environment that should be used to execute project entry points. This
   includes all library dependencies required by the project code.
 
-See the [`MLproject`](./21_mlflow_project_template/MLproject) or
-[`conda.yaml`](./21_mlflow_project_template/conda.yaml) template files for more details or consult
+See the files in the [template folder](./200_mlflow_project_template) for more details or consult
 MLflow's documentation.
 
 ### Commands
@@ -42,5 +41,25 @@ the `mlflow.projects.run()` Python API. For more information on how to call the 
 ```bash
 mlflow run --help
 ```
+**Attention, Windows users:** As of the moment of writing (using MLflow 1.5.0), there is a bug
+running `mlflow run` in the Windows `cmd` CLI. The problem occurs when the automatically created
+`conda` environment is activated. An error message occurs, telling that the CLI is not properly
+configured to execeute `conda activate` although `conda init cmd.exe` has already been successfully
+executed. To circumvent this, you must change one line in MLflow's code. Open
+`<MLFLOWVENV>\Lib\site-packages\mlflow\projects\\__init__.py` and find the `_run_entry_point`
+function (ll. 492ff. in MLflow 1.5.0). Replace the line
+```
+process = subprocess.Popen(command, close_fds=True, cwd=work_dir, env=env)
+```
+with
+```
+process = subprocess.Popen(["cmd", "/c", command], close_fds=True, cwd=work_dir, env=env)
+```
+Now, you are good to go.
 
 ## Tasks
+1. Take a look at the ["Hello World" Project folder](./210_hello_world) and its specific
+   implementation. Run the project with the local folder as well as with the remote GitHub folder.
+2. Complete the [Logistic Regression](./221_sklearn_logreg) and
+   [Wine Classification](./231_sklearn_elasticnet_wine) folders and run them as well. You can also
+   use their respective solution folders to them as remote GitHub projects.
