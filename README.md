@@ -1,6 +1,19 @@
 # Introduction to MLflow: managing the ML lifecycle from experimentation to deployment
 
+## Prerequisites
+* To run code and set up environments: Python 3
+* To run MLflow Projects and MLflow Models:
+  * Get conda >= 4.6
+  * Additionally, configure CLI to activate conda environments. To do so, type `conda init <CLI>` in
+    your CLI, where `<CLI>` is `cmd.exe` for Windows users or `bash` for Linux users.
+
 ## Setup
+For this workshop, we will need some virtual environments:
+* one for setting up the server
+* one for running `sklearn` examples
+
+The commands to create these environments are given as follows.
+
 ### Virtual environment for MLflow server
 Windows
 ```bash

@@ -12,7 +12,8 @@ import matplotlib.pyplot as plt
 import mlflow
 
 
-mlflow.set_tracking_uri("http://localhost:5000")
+print("MLflow Version: ", mlflow.version.VERSION)
+# mlflow.set_tracking_uri("http://localhost:5000")
 print("Tracking URI: ", mlflow.tracking.get_tracking_uri())
 
 experiment_name = "sklearn_logistic_regression"

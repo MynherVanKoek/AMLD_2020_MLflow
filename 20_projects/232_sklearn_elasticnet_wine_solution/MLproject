@@ -1,0 +1,12 @@
+name: sklearn_elasticnet_wine
+conda_env: conda.yaml
+entry_points:
+  main:
+    parameters:
+      alpha: {type: float, default: 0.5}
+      l1_ratio: {type: float, default: 0.1}
+      run_origin: {type: string, default: "None" }
+    command: "python train.py
+                --alpha {alpha}
+                --l1_ratio {l1_ratio}
+                --run_origin {run_origin}"
