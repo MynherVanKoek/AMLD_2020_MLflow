@@ -3,15 +3,18 @@
 # -- Name of the project
 name: My Project
 
-# -- Environment: the software environment that should be used to execute project entry points. This includes all library dependencies required by the project code.
+# -- Environment: the software environment that should be used to execute project entry points. This
+#  includes all library dependencies required by the project code.
 # a) conda environment
-conda_env: my_env.yaml
+conda_env: conda.yaml
 
 # b) As an alternative to conda_env, a docker environment is also possible.
 #docker_env:
 #  image: <registry>/<image>:<version>
 
-# -- Entry points: Commands that can be run within the project, and information about their parameters. Most projects contain at least one entry point that you want other users to call. You can call any .py or .sh file in the project as an entry point.
+# -- Entry points: Commands that can be run within the project, and information about their
+#  parameters. Most projects contain at least one entry point that you want other users to call. You
+#  can call any .py or .sh file in the project as an entry point.
 entry_points:
   # name of entry point
   train:
@@ -26,6 +29,7 @@ entry_points:
         type: string
         default: ""
     # definition of command being executed when calling the entry point
+    # to-be-called .py or .sh file needs to be present in folder
     command: "python train.py -p {par} --another_par {another_par} {data_file}"
   test:
     parameters:

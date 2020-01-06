@@ -30,3 +30,7 @@ mlflow_sklearn/
 
 # MLflow backend storage
 mlruns/
+
+# MLflow artifacts
+info.txt
+*.png
