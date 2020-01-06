@@ -60,6 +60,12 @@ Now, you are good to go.
 ## Tasks
 1. Take a look at the ["Hello World" Project folder](./210_hello_world) and its specific
    implementation. Run the project with the local folder as well as with the remote GitHub folder.
+   ```bash
+   set MLFLOW_TRACKING_URI=http://localhost:5000
+   mlflow_sklearn\Scripts\activate
+   mlflow run 20_projects\210_hello_world -Palpha=.01 -Prun_origin=LocalRun -Plog_artifact=True
+   mlflow run https://github.com/MynherVanKoek/AMLD_2020_MLflow.git#20_projects/210_hello_world -Palpha=.01 -Prun_origin=GitRun -Plog_artifact=True
+   ```
 2. Complete the [Logistic Regression](./221_sklearn_logreg) and
    [Wine Classification](./231_sklearn_elasticnet_wine) folders and run them as well. You can also
    use their respective solution folders to them as remote GitHub projects.
