@@ -1,8 +1,26 @@
-# MLflow Tracking -- Keeping Track of Models
-The first component discussed is MLflow's tracking component. We will learn how to log metrics,
-model parameters, and artifacts to a server. At first, a short [overview](#overview) taken from
-MLflow's documentation is given. Then, we will apply this knowledge to three little examples (see
-[Tasks](#tasks)).
+# MLflow Tracking&mdash;Keeping Track of Models
+The first component discussed is MLflow Tracking. It is an API and UI for logging parameters, code versions, metrics, and artifacts when running machine learning code and for later visualizing the results. It can be used in any environment to log results to local files or to a server, then compare multiple runs, or to compare results from different users.
+
+At first, the [setup](#setup) will be discussed. Then, a short [overview](#overview) taken from MLflow's documentation is given. And finally, we will apply this knowledge to three little examples (see [Tasks](#tasks)).
+
+## Setup
+### Locally
+Windows
+```bash
+mlflow_server\Scripts\activate
+mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:///%cd%\mlruns --default-artifact-root file:/%cd%\mlruns
+```
+Linux
+```bash
+. mlflow_server/bin/activate
+mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:///$pwd/mlruns --default-artifact-root file:/$pwd/mlruns
+```
+The MLflow server is now running on <http://localhost:5000>. This value needs to be assigned to the
+environment variable `MLFLOW_TRACKING_URI`, i.e., `set MLFLOW_TRACKING_URI=http://localhost:5000` on Windows
+or `export MLFLOW_TRACKING_URI=http://localhost:5000` on Linux. As an alternative, it can be set in your Python code through `mlflow.set_tracking_uri("http://localhost:5000")`.
+
+### With Docker
+The folder [`100_setup_server_docker`](./100_setup_server_docker) provides a `Dockerfile` and a `startup.sh` script that enables you run the MLflow service in a Docker container. In the given script, the artifacts and metadata are stored in a folder in that container, which is certainly not the best approach. For alternatives including cloud storage by common providers, check [MLflow's documentation](https://mlflow.org/docs/latest/tracking.html#mlflow-tracking-servers).
 
 ## Overview
 Here, the most important MLflow Tracking functionalities and respective Python API methods are

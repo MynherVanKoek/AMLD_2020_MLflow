@@ -1,4 +1,4 @@
-# MLflow Models -- Packaging and Deploying ML Models
+# MLflow Models&mdash;Packaging and Deploying ML Models
 So far, we have learnt how to integrate MLflow's tracking functionalities into our model code. Doing
 so, we can now trace different runs done with different parameters and their respective outcomes to
 better evaluate, compare, discard, or accept a model. Additionally, we have found a possibility to
@@ -80,6 +80,8 @@ several common libraries (*flavors*). They contain the methods
 * `mlflow.<FLAVOR>.load_model("<MODELURI>")` to load the model from a local file or a run. More
   details on how to reference models from different locations can be found
   [here](https://www.mlflow.org/docs/latest/concepts.html#artifact-locations).
+
+Additionally, some flavors (e.g., `keras`) offer the (experimental!) method `mlflow.<FLAVOR>.autolog()` that enable automatic logging. It logs metrics specified in the fit function, and optimizer data as parameters. Model checkpoints are logged as artifacts to a `models` directory.
 
 Second, you can `mlflow.models.Model` class to create and write models. This class has four key
 methods:
