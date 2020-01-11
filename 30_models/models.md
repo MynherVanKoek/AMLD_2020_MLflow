@@ -1,4 +1,4 @@
-# MLflow Models -- Packaging and Deploying ML Models
+# MLflow Models&mdash;Packaging and Deploying ML Models
 So far, we have learnt how to integrate MLflow's tracking functionalities into our model code. Doing
 so, we can now trace different runs done with different parameters and their respective outcomes to
 better evaluate, compare, discard, or accept a model. Additionally, we have found a possibility to
