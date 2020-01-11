@@ -81,6 +81,8 @@ several common libraries (*flavors*). They contain the methods
   details on how to reference models from different locations can be found
   [here](https://www.mlflow.org/docs/latest/concepts.html#artifact-locations).
 
+Additionally, some flavors (e.g., `keras`) offer the (experimental!) method `mlflow.<FLAVOR>.autolog()` that enable automatic logging. It logs metrics specified in the fit function, and optimizer data as parameters. Model checkpoints are logged as artifacts to a `models` directory.
+
 Second, you can `mlflow.models.Model` class to create and write models. This class has four key
 methods:
 * `.add_flavor("<FLAVOR>", <PARAMDICT>)` to add a flavor to the model. Each flavor has a string name

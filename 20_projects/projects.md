@@ -1,4 +1,4 @@
-# MLflow Projects -- Making Code Reproducible
+# MLflow Projects&mdash;Making Code Reproducible
 Having found a way to track code versions and parameters, we now want to go one step further and
 enable others to use our code on different machines or even run the code at scale on another
 platform, thus, making our results reproducible. This usually means that the whole environment

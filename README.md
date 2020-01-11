@@ -1,4 +1,7 @@
 # Introduction to MLflow: managing the ML lifecycle from experimentation to deployment
+Developing adequate machine learning models involves a lot of experimentation where different models or tools are tested, modified, discarded or eventually accepted. During this process, however, any history or traceable development that lead to the latest model may get lost since models usually are not being versioned continuously and their performance is not being stored. Results may then no longer be reproducible.
+
+In this workshop, we will introduce MLflow and show how you can integrate this model management framework into the ML lifecycle, from tracking experiments to eventually deploying models.
 
 ## Prerequisites
 * To run code and set up environments: Python 3
@@ -48,24 +51,19 @@ python -m ipykernel install --user --name mlflow_sklearn --display-name "Python 
 deactivate
 ```
 
-## Running the MLflow server
-### Locally
-Windows
-```bash
-mlflow_server\Scripts\activate
-mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:///%cd%\mlruns --default-artifact-root file:/%cd%\mlruns
-```
-Linux
-```bash
-. mlflow_server/bin/activate
-mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri file:///$pwd/mlruns --default-artifact-root file:/$pwd/mlruns
-```
-The MLflow server is now running on <http://localhost:5000>, this value needs to be assigned to the
-environment variable `MLFLOW_TRACKING_URI`.
+## Disclaimer
+Most of the documentation in this Git Repository is directly taken from [MLlfow's website](https://www.mlflow.org/docs/latest/index.html). It is condensed to explain the functionalities that I think are most important to be discussed in an introductory workshop. For more information and a deeper insight, please directly consult MLflow's documentation.
 
-### With Docker
-The folder `docker` provides a `Dockerfile` and a `startup.sh` script that enables you run the
-MLflow service in a Docker container. In the given script, the artifacts and metadata are stored in
-a folder in that container, which is certainly not the best approach. For alternatives including
-cloud storage by common providers, check
-[MLflow's documentation](https://mlflow.org/docs/latest/tracking.html#mlflow-tracking-servers).
+At the time of writing, the latest version was v1.5.0, which was used to prepare and conduct this workshop.
+
+## Overview on MLflow
+MLflow is an open source platform for managing the end-to-end machine learning lifecycle. It tackles three primary functions:
+* Tracking experiments to record and compare parameters and results
+* Packaging ML code in a reusable, reproducible form in order to share with other data
+  scientists or transfer to production
+* Managing and deploying models from a variety of ML libraries to a variety of model serving and
+  inference platforms
+
+MLflow is library-agnostic. It can be used with any machine learning library, and in any programming language, since all functions are accessible through a REST API and CLI. For convenience, the project also includes a Python API, R API, and Java API. Here, we only concentrate on the Python API.
+
+In this workshop, we will discuss MLflow's three components: [MLflow Tracking](./10_tracking/tracking.md), [MLflow Projects](./20_projects/projects.md), and [MLflow Models](./30_models/models.md).
