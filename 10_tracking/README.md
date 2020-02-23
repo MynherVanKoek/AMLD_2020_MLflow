@@ -5,7 +5,7 @@ At first, the [setup](#setup) will be discussed. Then, a short [overview](#overv
 
 ## Setup
 ### Locally
-Windows
+`cmd.exe` on Windows
 ```bash
 mlflow_server\Scripts\activate
 mlflow server \
@@ -13,6 +13,15 @@ mlflow server \
     --port 5000 \
     --backend-store-uri file:///%cd%\mlruns \
     --default-artifact-root file:/%cd%\mlruns
+```
+`powershell` on Windows
+```bash
+mlflow_server\Scripts\activate
+mlflow server \
+    --host 0.0.0.0 \
+    --port 5000 \
+    --backend-store-uri file:///$pwd\mlruns \
+    --default-artifact-root file:/$pwd\mlruns
 ```
 Linux
 ```bash
