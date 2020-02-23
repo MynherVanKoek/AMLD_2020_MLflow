@@ -22,21 +22,21 @@ Windows
 ```bash
 python -m venv mlflow_server
 mlflow_server\Scripts\activate
-pip install mlflow==1.5.0
+pip install mlflow==1.6.0
 deactivate
 ```
 Linux, Mac
 ```bash
 python -m venv mlflow_server
 . mlflow_server/bin/activate
-pip install mlflow==1.5.0
+pip install mlflow==1.6.0
 deactivate
 ```
 ***Alternatively***, you can create `conda` environments like so:
 ```bash
 conda create -n mlflow_server python=3.7
 conda activate mlflow_server
-pip install mlflow==1.5.0
+pip install mlflow==1.6.0
 conda deactivate
 ```
 
@@ -45,7 +45,7 @@ Windows
 ```bash
 python -m venv mlflow_sklearn
 mlflow_sklearn\Scripts\activate
-pip install mlflow==1.5.0 sklearn matplotlib jupyter
+pip install mlflow==1.6.0 sklearn matplotlib jupyter
 python -m ipykernel install --user --name mlflow_sklearn --display-name "Python (MLflow sklearn)"
 deactivate
 ```
@@ -53,7 +53,7 @@ Linux, Mac
 ```bash
 python -m venv mlflow_sklearn
 . mlflow_sklearn/bin/activate
-pip install mlflow==1.5.0 sklearn matplotlib jupyter
+pip install mlflow==1.6.0 sklearn matplotlib jupyter
 python -m ipykernel install --user --name mlflow_sklearn --display-name "Python (MLflow sklearn)"
 deactivate
 ```
@@ -61,13 +61,13 @@ deactivate
 ```bash
 conda create -n mlflow_sklearn python=3.7
 conda activate mlflow_sklearn
-pip install mlflow==1.5.0 sklearn matplotlib jupyter
+pip install mlflow==1.6.0 sklearn matplotlib jupyter
 python -m ipykernel install --user --name mlflow_sklearn --display-name "Python (MLflow sklearn)"
 conda deactivate
 ```
 
 ## Disclaimer
-At the time of writing, the latest version was v1.5.0, which was used to prepare and conduct this workshop.
+At the time of writing, the latest version was v1.6.0, which was used to prepare and conduct this workshop.
 
 Most of the documentation in this Git Repository is directly taken from [MLlfow's website](https://www.mlflow.org/docs/latest/index.html). It is condensed to explain the functionalities that I think are most important to be discussed in an introductory workshop. For more information and a deeper insight, please directly consult MLflow's documentation.
 

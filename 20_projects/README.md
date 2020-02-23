@@ -47,7 +47,7 @@ running `mlflow run` in the Windows `cmd` CLI. The problem occurs when the autom
 configured to execeute `conda activate` although `conda init cmd.exe` has already been successfully
 executed. To circumvent this, you must change one line in MLflow's code. Open
 `<MLFLOWVENV>\Lib\site-packages\mlflow\projects\\__init__.py` and find the `_run_entry_point`
-function (ll. 492ff. in MLflow 1.5.0). Replace the line
+function (ll. 494ff. in MLflow 1.6.0). Replace the line
 ```
 process = subprocess.Popen(command, close_fds=True, cwd=work_dir, env=env)
 ```
@@ -63,8 +63,8 @@ Now, you are good to go.
    ```bash
    set MLFLOW_TRACKING_URI=http://localhost:5000
    mlflow_sklearn\Scripts\activate
-   mlflow run 20_projects\210_hello_world -Palpha=.01 -Prun_origin=LocalRun -Plog_artifact=True
-   mlflow run https://github.com/MynherVanKoek/AMLD_2020_MLflow.git#20_projects/210_hello_world -Palpha=.01 -Prun_origin=GitRun -Plog_artifact=True
+   mlflow run 20_projects\210_hello_world -P alpha=.01 -P run_origin=LocalRun -P log_artifact=True
+   mlflow run https://github.com/MynherVanKoek/AMLD_2020_MLflow.git#20_projects/210_hello_world -P alpha=.01 -P run_origin=GitRun -P log_artifact=True
    ```
    Again, Linux or Mac Users need to activate their virtual environment by using `. mlflow_sklearn/bin/activate`. For `conda` environments use `conda activate mlflow_sklearn`.
 
